@@ -92,7 +92,7 @@ gulp.task("release", ["package"], function(){
 	/**
 	*/
 	gulp.src("./dist/" + pkg.name + ".tar.gz")
-  	.pipe(release({
+  	.pipe(g.githubRelease({
 			manifest: require("./package.json")
 	 	}));
 });
