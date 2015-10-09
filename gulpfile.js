@@ -5,7 +5,7 @@ var gulp = require("gulp"),
 	g = require("gulp-load-plugins")({lazy: false}),
 	rimraf = require("rimraf"),
 	release = require('github-release'),
-	pkg = require("./package"),
+	pkg = require("./package.json"),
 	exec = require("child_process").exec;
 
 
@@ -90,7 +90,9 @@ gulp.task("package", ["scripts"], function () {
  */
 gulp.task("release", ["package"], function(){
  gulp.src("./dist/" + pkg.name + ".tar.gz")
-   .pipe(release());
+   .pipe(release({
+		  manifest: pkg
+	 }));
 });
 
 gulp.task("bump-major", function(){
