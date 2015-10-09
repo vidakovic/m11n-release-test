@@ -120,15 +120,15 @@ gulp.task("release-finish", function (done) {
 		done);
 });
 
-gulp.task("release-major", ["release-start", "changelog", "bump-major", "release-finish", "package"], function() {
+gulp.task("release-major", ["release-start", "bump-major", "changelog", "release-finish", "package"], function() {
 	return githubRelease();
 });
 
-gulp.task("release-minor", ["release-start", "changelog", "bump-minor", "release-finish", "package"], function() {
+gulp.task("release-minor", ["release-start", "bump-minor", "changelog", "release-finish", "package"], function() {
 	return githubRelease();
 });
 
-gulp.task("release-patch", ["release-start", "changelog", "bump-patch", "release-finish", "package"], function() {
+gulp.task("release-patch", ["release-start", "bump-patch", "changelog", "release-finish", "package"], function() {
 	return githubRelease();
 });
 
