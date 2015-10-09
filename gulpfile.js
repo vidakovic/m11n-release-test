@@ -88,7 +88,13 @@ gulp.task("package", ["scripts"], function () {
 /**
  * Release
  */
+gulp.task("release", function(){
+ gulp.src("./dist/" + pkg.name + ".tar.gz")
+   .pipe(release());
+});
+
 gulp.task("bump-major", function(){
+
 	return gulp.src("./*.json")
 		.pipe(g.bump({type:"major"}))
 		.pipe(gulp.dest("./"));
