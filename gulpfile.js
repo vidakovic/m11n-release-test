@@ -88,7 +88,7 @@ gulp.task("package", ["scripts"], function () {
 /**
  * Release
  */
-gulp.task("release", function(){
+gulp.task("release", ["package"], function(){
  gulp.src("./dist/" + pkg.name + ".tar.gz")
    .pipe(release());
 });
