@@ -92,7 +92,11 @@ gulp.task("release", ["package"], function(){
 	/**
 	*/
 	gulp.src("./dist/" + pkg.name + ".tar.gz")
-  	.pipe(g.githubRelease());
+  	.pipe(g.githubRelease({
+			owner: "vidakovic",
+      repo: "develop",
+			manifest: require("./package.json")
+	 	}));
 });
 
 gulp.task("bump-major", function(){
