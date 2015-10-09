@@ -88,34 +88,13 @@ gulp.task("package", ["scripts"], function () {
  * Release
  */
 gulp.task("release", ["package"], function(){
-	console.log("PACK: " + JSON.stringify(pkg.repository.url));
-	/**
-	*/
 	gulp.src("./dist/" + pkg.name + ".tar.gz")
   	.pipe(g.githubRelease({
 			owner: "vidakovic",
+			tag: pkg.version,
       repo: pkg.name,
 			manifest: pkg
 	 	}));
-});
-
-gulp.task("bump-major", function(){
-
-	return gulp.src("./*.json")
-		.pipe(g.bump({type:"major"}))
-		.pipe(gulp.dest("./"));
-});
-
-gulp.task("bump-minor", function(){
-	return gulp.src("./*.json")
-		.pipe(g.bump({type:"minor"}))
-		.pipe(gulp.dest("./"));
-});
-
-gulp.task("bump-patch", function(){
-	return gulp.src("./*.json")
-		.pipe(g.bump({type:"patch"}))
-		.pipe(gulp.dest("./"));
 });
 
 gulp.task("build", ["package"]);
