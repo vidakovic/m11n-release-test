@@ -97,6 +97,24 @@ gulp.task("release", ["package"], function(){
 	 	}));
 });
 
+gulp.task("bump-major", function(){
+	return gulp.src("./*.json")
+		.pipe(g.bump({type:"major"}))
+		.pipe(gulp.dest("./"));
+});
+
+gulp.task("bump-minor", function(){
+	return gulp.src("./*.json")
+		.pipe(g.bump({type:"minor"}))
+		.pipe(gulp.dest("./"));
+});
+
+gulp.task("bump-patch", function(){
+	return gulp.src("./*.json")
+		.pipe(g.bump({type:"patch"}))
+		.pipe(gulp.dest("./"));
+});
+
 gulp.task("build", ["package"]);
 
 /**

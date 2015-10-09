@@ -1,6 +1,6 @@
 {
   "name": "m11n-release-test",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Release test",
   "main": "index.js",
   "scripts": {
@@ -28,6 +28,7 @@
     "cz-conventional-changelog": "1.1.0",
     "github-release": "^0.2.0",
     "gulp": "^3.9.0",
+    "gulp-bump": "^1.0.0",
     "gulp-github-release": "^1.0.3",
     "gulp-gzip": "^1.2.0",
     "gulp-load-plugins": "^0.10.0",
