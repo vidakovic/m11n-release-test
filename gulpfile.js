@@ -89,10 +89,13 @@ gulp.task("package", ["scripts"], function () {
  * Release
  */
 gulp.task("release", ["package"], function(){
- gulp.src("./dist/" + pkg.name + ".tar.gz")
-   .pipe(release({
-		  manifest: pkg
-	 }));
+	console.log("PACK: " + JSON.stringify(pkg.repository.url));
+	/**
+	*/
+	gulp.src("./dist/" + pkg.name + ".tar.gz")
+  	.pipe(release({
+			manifest: require("./package.json")
+	 	}));
 });
 
 gulp.task("bump-major", function(){
