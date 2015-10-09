@@ -1,0 +1,44 @@
+{
+  "name": "m11n-release-test",
+  "version": "1.0.0",
+  "description": "Release test",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp",
+    "release": "gulp release",
+    "test": "echo \"[WARN]: no test specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vidakovic/m11n-release-test.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "Aleksandar Vidakovic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vidakovic/m11n-release-test/issues"
+  },
+  "homepage": "https://github.com/vidakovic/m11n-release-test#readme",
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "1.1.0",
+    "github-release": "^0.2.0",
+    "gulp": "^3.9.0",
+    "gulp-gzip": "^1.2.0",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-tar": "^1.4.0",
+    "gulp-uglify": "^1.4.1",
+    "gulp-umd": "^0.2.0",
+    "rimraf": "^2.4.3"
+  },
+  "dependencies": {
+    "jquery-deferred": "^0.3.0",
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6"
+  }
+}
