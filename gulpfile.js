@@ -97,6 +97,15 @@ gulp.task("release", ["package"], function(){
 	 	}));
 });
 
+gulp.task("changelog", function () {
+  return gulp.src("CHANGELOG.md")
+    .pipe(g.conventionalChangelog({
+      preset: 'angular',
+			releaseCount: 0
+    }))
+    .pipe(gulp.dest("./"));
+});
+
 gulp.task("bump-major", function(){
 	return gulp.src("./*.json")
 		.pipe(g.bump({type:"major"}))
