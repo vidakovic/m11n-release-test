@@ -4,7 +4,6 @@
 var gulp = require("gulp"),
 	g = require("gulp-load-plugins")({lazy: false}),
 	rimraf = require("rimraf"),
-	release = require('github-release'),
 	pkg = require("./package.json"),
 	exec = require("child_process").exec;
 
