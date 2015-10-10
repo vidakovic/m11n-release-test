@@ -92,9 +92,17 @@ gulp.task("package", function () {
  * Release
  */
 
-gulp.task("release-dump", function () {
-	return g.file("released.version.json", "{\"version\": \"" + /(\d*\.\d*\.\d*)/.exec(pkg.version)[1] + "\"}")
-	.pipe(gulp.dest('dist'));
+gulp.task("release-dump", function (done) {
+	var fs = require('fs');
+	fs.writeFile("./dist/released.version.json", "{\"version\": \"" + /(\d*\.\d*\.\d*)/.exec(pkg.version)[1] + "\"}", function(err) {
+	    if(err) {
+	        return console.log(err);
+	    }
+
+	    console.log("Released version dumped.");
+
+			done();
+	});
 });
 
 gulp.task("release-changelog", function () {
