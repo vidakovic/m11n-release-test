@@ -138,21 +138,24 @@ gulp.task("bump-major", function(){
 	return gulp.src("./*.json")
 		.pipe(g.bump({type:"major"}))
 		.pipe(gulp.dest("./"))
-		.pipe(g.git.commit("release: Bump major version"));
+		.pipe(g.git.commit("release: Bump major version"))
+		.pipe(g.git.push());
 });
 
 gulp.task("bump-minor", function(){
 	return gulp.src("./*.json")
 		.pipe(g.bump({type:"minor"}))
 		.pipe(gulp.dest("./"))
-		.pipe(g.git.commit("release: Bump minor version"));
+		.pipe(g.git.commit("release: Bump minor version"))
+		.pipe(g.git.push());
 });
 
 gulp.task("bump-patch", function(){
 	return gulp.src("./*.json")
 		.pipe(g.bump({type:"patch"}))
 		.pipe(gulp.dest("./"))
-		.pipe(g.git.commit("release: Bump patch version"));
+		.pipe(g.git.commit("release: Bump patch version"))
+		.pipe(g.git.push());
 });
 
 gulp.task("build", ["package"]);
