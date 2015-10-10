@@ -107,11 +107,11 @@ gulp.task("release-changelog", function () {
 	 .pipe(g.git.commit("release: Update changelog"));
 });
 
-gulp.task("release-assets", function () {
+gulp.task("release-assets", gulp.series("package"), function () {
 	return gulp.src("./dist/" + pkg.name + ".tar.gz")
   	.pipe(g.githubRelease({
 			owner: "vidakovic",
-			tag: require("./dist/released.version.json"),
+			tag: require("./dist/released.version.json").version,
       repo: pkg.name,
 			manifest: pkg
 	 	}));
