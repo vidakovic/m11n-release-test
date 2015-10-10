@@ -1,9 +1,11 @@
-<a name="1.0.3"></a>
-## [1.0.3](https://github.com/vidakovic/m11n-release-test/compare/1.0.2...v1.0.3) (2015-10-09)
+<a name="1.0.4"></a>
+## [1.0.4](https://github.com/vidakovic/m11n-release-test/compare/1.0.2...v1.0.4) (2015-10-10)
 
 
 ### Bug Fixes
 
+* **build:** Fix release tasks ([6c581a6](https://github.com/vidakovic/m11n-release-test/commit/6c581a6))
+* **build:** Fix release tasks ([a2b0253](https://github.com/vidakovic/m11n-release-test/commit/a2b0253))
 * **build:** Minor fix ([82c6ea6](https://github.com/vidakovic/m11n-release-test/commit/82c6ea6))
 
 ### Features
