@@ -91,7 +91,7 @@ gulp.task("package", ["scripts"], function () {
  * Release
  */
 
-function githubRelease() {
+gulp.task("release-publish", function () {
 	return gulp.src("./dist/" + pkg.name + ".tar.gz")
   	.pipe(g.githubRelease({
 			owner: "vidakovic",
@@ -99,7 +99,7 @@ function githubRelease() {
       repo: pkg.name,
 			manifest: pkg
 	 	}));
-}
+});
 
 gulp.task("release-start", function (done) {
 	shell(
@@ -111,7 +111,7 @@ gulp.task("release-start", function (done) {
 
 gulp.task("release-finish", function (done) {
 	shell(
-		"git flow release finish " + pkg.version + " && " +
+		"git flow release finish -S -m \"release: Finish\"" + pkg.version + " && " +
 		"git push --tags && " +
 		"git checkout master && " +
 		"git push && " +
@@ -120,17 +120,11 @@ gulp.task("release-finish", function (done) {
 		done);
 });
 
-gulp.task("release-major", ["release-start", "bump-major", "changelog", "release-finish", "package"], function() {
-	return githubRelease();
-});
+gulp.task("release-major", ["release-start", "bump-major", "changelog", "release-finish", "package", "release-publish"]);
 
-gulp.task("release-minor", ["release-start", "bump-minor", "changelog", "release-finish", "package"], function() {
-	return githubRelease();
-});
+gulp.task("release-minor", ["release-start", "bump-minor", "changelog", "release-finish", "package", "release-publish"]);
 
-gulp.task("release-patch", ["release-start", "bump-patch", "changelog", "release-finish", "package"], function() {
-	return githubRelease();
-});
+gulp.task("release-patch", ["release-start", "bump-patch", "changelog", "release-finish", "package"], "release-publish");
 
 gulp.task("changelog", function () {
   return gulp.src("CHANGELOG.md")
