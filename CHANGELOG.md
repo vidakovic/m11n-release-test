@@ -1,6 +1,10 @@
-<a name="2.0.5"></a>
-## [2.0.5](https://github.com/vidakovic/m11n-release-test/compare/2.0.4...v2.0.5) (2015-10-10)
+<a name="2.0.6"></a>
+## [2.0.6](https://github.com/vidakovic/m11n-release-test/compare/2.0.5...v2.0.6) (2015-10-10)
 
+
+### Features
+
+* **build:** Add convenience task for release ([3f2f4fb](https://github.com/vidakovic/m11n-release-test/commit/3f2f4fb))
 
 
 

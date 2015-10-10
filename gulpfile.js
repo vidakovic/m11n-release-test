@@ -34,7 +34,7 @@ gulp.task("clean", function (done) {
 	rimraf("dist/**/*.js", done);
 });
 
-gulp.task("scripts", gulp.series("clean"), function () {
+gulp.task("scripts", function () {
 	return gulp.src([
 		"index.js"])
 		.pipe(g.umd({
@@ -81,8 +81,8 @@ gulp.task("scripts", gulp.series("clean"), function () {
 /**
  * Package
  */
-gulp.task("package", gulp.series("scripts"), function () {
-  return gulp.src(["dist/*.js", "package.json", "bower.json"])
+gulp.task("package", function () {
+  return gulp.src(["dist/*.js", "package.json", "CHANGELOG.md", "LICENSE", "README.md"])
     .pipe(g.tar(pkg.name + ".tar"))
     .pipe(g.gzip())
     .pipe(gulp.dest('dist'));
@@ -107,7 +107,7 @@ gulp.task("release-changelog", function () {
 	 .pipe(g.git.commit("release: Update changelog"));
 });
 
-gulp.task("release-assets", gulp.series("package"), function () {
+gulp.task("release-assets", function () {
 	return gulp.src("./dist/" + pkg.name + ".tar.gz")
   	.pipe(g.githubRelease({
 			owner: "vidakovic",
@@ -117,7 +117,9 @@ gulp.task("release-assets", gulp.series("package"), function () {
 	 	}));
 });
 
-gulp.task("build", gulp.series("package"));
+gulp.task("build", gulp.series("clean", "scripts", "package"));
+
+gulp.task("release", gulp.series("release-start", "release-dump", "release-changelog", "build", "release-finish", "release-assets"));
 
 /**
  * Default task
