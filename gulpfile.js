@@ -102,6 +102,7 @@ gulp.task("release-publish", function () {
 	 	}));
 });
 
+/**
 gulp.task("release-start", function (done) {
 	shell(
 		"git flow release start -F '" + pkg.version + "'",
@@ -118,6 +119,7 @@ gulp.task("release-finish", function (done) {
 		"git push",
 		done);
 });
+*/
 
 gulp.task("changelog", function () {
   return gulp.src("CHANGELOG.md")
@@ -153,11 +155,13 @@ gulp.task("bump-patch", function(){
 		.pipe(g.git.push("origin", "develop"));
 });
 
+/**
 gulp.task("release-major", gulp.series("bump-major", "changelog", "release-start", "release-finish", "package", "release-publish"));
 
 gulp.task("release-minor", gulp.series("bump-minor", "changelog", "release-start", "release-finish", "package", "release-publish"));
 
 gulp.task("release-patch", gulp.series("bump-patch", "changelog", "release-start", "release-finish", "package", "release-publish"));
+*/
 
 gulp.task("build", gulp.series("package"));
 
