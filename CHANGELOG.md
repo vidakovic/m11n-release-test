@@ -1,18 +1,13 @@
-<a name="1.0.4"></a>
-## [1.0.4](https://github.com/vidakovic/m11n-release-test/compare/1.0.2...v1.0.4) (2015-10-10)
+<a name="1.0.3"></a>
+## [1.0.3](https://github.com/vidakovic/m11n-release-test/compare/1.0.2...v1.0.3) (2015-10-10)
 
 
 ### Bug Fixes
 
-<<<<<<< HEAD
 * **build:** Cleanup ([ac60a23](https://github.com/vidakovic/m11n-release-test/commit/ac60a23))
 * **build:** Fix release tasks ([6c581a6](https://github.com/vidakovic/m11n-release-test/commit/6c581a6))
 * **build:** Fix release tasks ([a2b0253](https://github.com/vidakovic/m11n-release-test/commit/a2b0253))
 * **build:** Fix release tasks sequence ([5fc898c](https://github.com/vidakovic/m11n-release-test/commit/5fc898c))
-=======
-* **build:** Fix release tasks ([6c581a6](https://github.com/vidakovic/m11n-release-test/commit/6c581a6))
-* **build:** Fix release tasks ([a2b0253](https://github.com/vidakovic/m11n-release-test/commit/a2b0253))
->>>>>>> release/1.0.3
 * **build:** Minor fix ([82c6ea6](https://github.com/vidakovic/m11n-release-test/commit/82c6ea6))
 
 ### Features
@@ -47,6 +42,3 @@
 * **build:** Minor fix ([a69c5d3](https://github.com/vidakovic/m11n-release-test/commit/a69c5d3))
 * **build:** Minor fix ([67e8429](https://github.com/vidakovic/m11n-release-test/commit/67e8429))
 * **build:** Remove unused dependency ([21ffc22](https://github.com/vidakovic/m11n-release-test/commit/21ffc22))
-
-
-
