@@ -124,7 +124,7 @@ gulp.task("release-major", ["release-start", "bump-major", "changelog", "release
 
 gulp.task("release-minor", ["release-start", "bump-minor", "changelog", "release-finish", "package", "release-publish"]);
 
-gulp.task("release-patch", ["release-start", "bump-patch", "changelog", "release-finish", "package"], "release-publish");
+gulp.task("release-patch", ["release-start", "bump-patch", "changelog", "release-finish", "package", "release-publish"]);
 
 gulp.task("changelog", function () {
   return gulp.src("CHANGELOG.md")
