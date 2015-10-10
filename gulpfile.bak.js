@@ -102,6 +102,65 @@ gulp.task("release-publish", function () {
 	 	}));
 });
 
+/**
+gulp.task("release-start", function (done) {
+	shell(
+		"git flow release start -F '" + pkg.version + "'",
+		done);
+});
+
+gulp.task("release-finish", function (done) {
+	shell(
+		"git flow release finish -S -p -m \"release: Finish\" '" + pkg.version + "' && " +
+		"git push --tags && " +
+		"git checkout master && " +
+		"git push && " +
+		"git checkout develop && " +
+		"git push",
+		done);
+});
+
+gulp.task("changelog", function () {
+  return gulp.src("CHANGELOG.md")
+    .pipe(g.conventionalChangelog({
+      preset: "angular",
+			releaseCount: 0
+    }))
+    .pipe(gulp.dest("./"))
+		.pipe(g.git.commit("release: Update changelog"));
+});
+
+gulp.task("bump-major", function(){
+	return gulp.src("./*.json")
+		.pipe(g.bump({type:"major"}))
+		.pipe(gulp.dest("./"))
+		.pipe(g.git.commit("release: Bump major version"))
+		.pipe(g.git.push("origin", "develop"));
+});
+
+gulp.task("bump-minor", function(){
+	return gulp.src("./*.json")
+		.pipe(g.bump({type:"minor"}))
+		.pipe(gulp.dest("./"))
+		.pipe(g.git.commit("release: Bump minor version"))
+		.pipe(g.git.push("origin", "develop"));
+});
+
+gulp.task("bump-patch", function(){
+	return gulp.src("./*.json")
+		.pipe(g.bump({type:"patch"}))
+		.pipe(gulp.dest("./"))
+		.pipe(g.git.commit("release: Bump patch version"))
+		.pipe(g.git.push("origin", "develop"));
+});
+
+gulp.task("release-major", gulp.series("bump-major", "changelog", "release-start", "release-finish", "package", "release-publish"));
+
+gulp.task("release-minor", gulp.series("bump-minor", "changelog", "release-start", "release-finish", "package", "release-publish"));
+
+gulp.task("release-patch", gulp.series("bump-patch", "changelog", "release-start", "release-finish", "package", "release-publish"));
+*/
+
 gulp.task("build", gulp.series("package"));
 
 /**
