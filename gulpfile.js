@@ -103,9 +103,7 @@ gulp.task("release-publish", function () {
 
 gulp.task("release-start", function (done) {
 	shell(
-		"git flow release start " + pkg.version + " && " +
-		"git flow release publish " + pkg.version + " && " +
-		"git flow release track " + pkg.version,
+		"git flow release start '" + pkg.version + "'",
 		done);
 });
 
