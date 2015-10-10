@@ -1,5 +1,11 @@
+<a name="2.0.3"></a>
+## [2.0.3](https://github.com/vidakovic/m11n-release-test/compare/2.0.2...v2.0.3) (2015-10-10)
+
+
+
+
 <a name="1.0.6"></a>
-## [1.0.6](https://github.com/vidakovic/m11n-release-test/compare/1.0.4...v1.0.6) (2015-10-10)
+## [1.0.6](https://github.com/vidakovic/m11n-release-test/compare/1.0.4...1.0.6) (2015-10-10)
 
 
 
