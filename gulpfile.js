@@ -7,6 +7,7 @@ var gulp = require("gulp"),
 	pkg = require("./package.json"),
 	exec = require("child_process").exec;
 
+gulp.registry(new g.gitflow());
 
 /**
  * Helpers
@@ -33,7 +34,7 @@ gulp.task("clean", function (done) {
 	rimraf("dist/**/*.js", done);
 });
 
-gulp.task("scripts", ["clean"], function () {
+gulp.task("scripts", gulp.series("clean"), function () {
 	return gulp.src([
 		"index.js"])
 		.pipe(g.umd({
@@ -80,7 +81,7 @@ gulp.task("scripts", ["clean"], function () {
 /**
  * Package
  */
-gulp.task("package", ["scripts"], function () {
+gulp.task("package", gulp.series("scripts"), function () {
   return gulp.src(["dist/*.js", "package.json", "bower.json"])
     .pipe(g.tar(pkg.name + ".tar"))
     .pipe(g.gzip())
@@ -118,12 +119,6 @@ gulp.task("release-finish", function (done) {
 		done);
 });
 
-gulp.task("release-major", ["bump-major", "changelog", "release-start", "release-finish", "package", "release-publish"]);
-
-gulp.task("release-minor", ["bump-minor", "changelog", "release-start", "release-finish", "package", "release-publish"]);
-
-gulp.task("release-patch", ["bump-patch", "changelog", "release-start", "release-finish", "package", "release-publish"]);
-
 gulp.task("changelog", function () {
   return gulp.src("CHANGELOG.md")
     .pipe(g.conventionalChangelog({
@@ -158,9 +153,15 @@ gulp.task("bump-patch", function(){
 		.pipe(g.git.push("origin", "develop"));
 });
 
-gulp.task("build", ["package"]);
+gulp.task("release-major", gulp.series("bump-major", "changelog", "release-start", "release-finish", "package", "release-publish"));
+
+gulp.task("release-minor", gulp.series("bump-minor", "changelog", "release-start", "release-finish", "package", "release-publish"));
+
+gulp.task("release-patch", gulp.series("bump-patch", "changelog", "release-start", "release-finish", "package", "release-publish"));
+
+gulp.task("build", gulp.series("package"));
 
 /**
  * Default task
  */
-gulp.task("default", ["build"]);
+gulp.task("default", gulp.series("build"));
