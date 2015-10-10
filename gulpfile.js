@@ -96,7 +96,7 @@ gulp.task("release-publish", function () {
 	return gulp.src("./dist/" + pkg.name + ".tar.gz")
   	.pipe(g.githubRelease({
 			owner: "vidakovic",
-			tag: pkg.version,
+			tag: /(\d*\.\d*\.\d*)/.exec(pkg.version)[1],
       repo: pkg.name,
 			manifest: pkg
 	 	}));
