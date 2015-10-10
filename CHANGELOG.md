@@ -1,9 +1,3 @@
-<a name="2.0.3-dev"></a>
-## [2.0.3-dev](https://github.com/vidakovic/m11n-release-test/compare/2.0.2...v2.0.3-dev) (2015-10-10)
-
-
-
-
 <a name="1.0.6"></a>
 ## [1.0.6](https://github.com/vidakovic/m11n-release-test/compare/1.0.4...1.0.6) (2015-10-10)
 
@@ -54,6 +48,3 @@
 * **build:** Minor fix ([a69c5d3](https://github.com/vidakovic/m11n-release-test/commit/a69c5d3))
 * **build:** Minor fix ([67e8429](https://github.com/vidakovic/m11n-release-test/commit/67e8429))
 * **build:** Remove unused dependency ([21ffc22](https://github.com/vidakovic/m11n-release-test/commit/21ffc22))
-
-
-

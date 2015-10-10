@@ -92,7 +92,17 @@ gulp.task("package", gulp.series("scripts"), function () {
  * Release
  */
 
-gulp.task("release-publish", function () {
+gulp.task("release-changelog", function () {
+ return gulp.src("CHANGELOG.md")
+   .pipe(g.conventionalChangelog({
+     preset: "angular",
+			releaseCount: 0
+   }))
+   .pipe(gulp.dest("./"))
+		.pipe(g.git.commit("release: Update changelog"));
+});
+
+gulp.task("release-assets", function () {
 	return gulp.src("./dist/" + pkg.name + ".tar.gz")
   	.pipe(g.githubRelease({
 			owner: "vidakovic",
