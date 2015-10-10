@@ -103,13 +103,13 @@ gulp.task("release-publish", function () {
 
 gulp.task("release-start", function (done) {
 	shell(
-		"git flow release start '" + pkg.version + "'",
+		"git flow release start -F '" + pkg.version + "'",
 		done);
 });
 
 gulp.task("release-finish", function (done) {
 	shell(
-		"git flow release finish '" + pkg.version + "' -S -m \"release: Finish\" && " +
+		"git flow release finish -S -p -m \"release: Finish\" '" + pkg.version + "' && " +
 		"git push --tags && " +
 		"git checkout master && " +
 		"git push && " +
