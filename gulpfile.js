@@ -109,7 +109,7 @@ gulp.task("release-start", function (done) {
 
 gulp.task("release-finish", function (done) {
 	shell(
-		"git flow release finish -S -m \"release: Finish\"" + pkg.version + " && " +
+		"git flow release finish '" + pkg.version + "' -S -m \"release: Finish\" && " +
 		"git push --tags && " +
 		"git checkout master && " +
 		"git push && " +

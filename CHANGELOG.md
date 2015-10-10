@@ -4,10 +4,15 @@
 
 ### Bug Fixes
 
+<<<<<<< HEAD
 * **build:** Cleanup ([ac60a23](https://github.com/vidakovic/m11n-release-test/commit/ac60a23))
 * **build:** Fix release tasks ([6c581a6](https://github.com/vidakovic/m11n-release-test/commit/6c581a6))
 * **build:** Fix release tasks ([a2b0253](https://github.com/vidakovic/m11n-release-test/commit/a2b0253))
 * **build:** Fix release tasks sequence ([5fc898c](https://github.com/vidakovic/m11n-release-test/commit/5fc898c))
+=======
+* **build:** Fix release tasks ([6c581a6](https://github.com/vidakovic/m11n-release-test/commit/6c581a6))
+* **build:** Fix release tasks ([a2b0253](https://github.com/vidakovic/m11n-release-test/commit/a2b0253))
+>>>>>>> release/1.0.3
 * **build:** Minor fix ([82c6ea6](https://github.com/vidakovic/m11n-release-test/commit/82c6ea6))
 
 ### Features
