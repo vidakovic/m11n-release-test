@@ -1,6 +1,10 @@
-<a name="2.0.6"></a>
-## [2.0.6](https://github.com/vidakovic/m11n-release-test/compare/2.0.5...v2.0.6) (2015-10-10)
+<a name="2.0.7"></a>
+## [2.0.7](https://github.com/vidakovic/m11n-release-test/compare/2.0.6...v2.0.7) (2015-10-10)
 
+
+### Bug Fixes
+
+* **build:** Fix release-dump task ([7087daa](https://github.com/vidakovic/m11n-release-test/commit/7087daa))
 
 ### Features
 
