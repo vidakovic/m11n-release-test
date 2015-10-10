@@ -139,7 +139,7 @@ gulp.task("bump-major", function(){
 		.pipe(g.bump({type:"major"}))
 		.pipe(gulp.dest("./"))
 		.pipe(g.git.commit("release: Bump major version"))
-		.pipe(g.git.push());
+		.pipe(g.git.push("origin", "develop"));
 });
 
 gulp.task("bump-minor", function(){
@@ -147,7 +147,7 @@ gulp.task("bump-minor", function(){
 		.pipe(g.bump({type:"minor"}))
 		.pipe(gulp.dest("./"))
 		.pipe(g.git.commit("release: Bump minor version"))
-		.pipe(g.git.push());
+		.pipe(g.git.push("origin", "develop"));
 });
 
 gulp.task("bump-patch", function(){
@@ -155,7 +155,7 @@ gulp.task("bump-patch", function(){
 		.pipe(g.bump({type:"patch"}))
 		.pipe(gulp.dest("./"))
 		.pipe(g.git.commit("release: Bump patch version"))
-		.pipe(g.git.push());
+		.pipe(g.git.push("origin", "develop"));
 });
 
 gulp.task("build", ["package"]);
