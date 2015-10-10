@@ -1,7 +1,7 @@
 {
   "name": "m11n-release-test",
   "description": "Release test",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "main": "index.js",
   "scripts": {
     "build": "gulp",
@@ -31,6 +31,7 @@
     "gulp": "gulpjs/gulp#4.0",
     "gulp-bump": "^1.0.0",
     "gulp-conventional-changelog": "^0.7.0",
+    "gulp-file": "^0.2.0",
     "gulp-git": "^1.5.0",
     "gulp-gitflow": "git+https://github.com/nfantone/gulp-gitflow.git#develop",
     "gulp-github-release": "^1.0.3",

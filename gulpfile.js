@@ -92,21 +92,26 @@ gulp.task("package", gulp.series("scripts"), function () {
  * Release
  */
 
+gulp.task("release-dump", function () {
+	return g.file("released.version.json", "{\"version\": \"" + /(\d*\.\d*\.\d*)/.exec(pkg.version)[1] + "\"}")
+	.pipe(gulp.dest('dist'));
+});
+
 gulp.task("release-changelog", function () {
- return gulp.src("CHANGELOG.md")
-   .pipe(g.conventionalChangelog({
-     preset: "angular",
+ 	return gulp.src("CHANGELOG.md")
+  	.pipe(g.conventionalChangelog({
+    	preset: "angular",
 			releaseCount: 0
    }))
    .pipe(gulp.dest("./"))
-		.pipe(g.git.commit("release: Update changelog"));
+	 .pipe(g.git.commit("release: Update changelog"));
 });
 
 gulp.task("release-assets", function () {
 	return gulp.src("./dist/" + pkg.name + ".tar.gz")
   	.pipe(g.githubRelease({
 			owner: "vidakovic",
-			tag: /(\d*\.\d*\.\d*)/.exec(pkg.version)[1],
+			tag: require("./dist/released.version.json"),
       repo: pkg.name,
 			manifest: pkg
 	 	}));
